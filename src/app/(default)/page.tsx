@@ -1,9 +1,9 @@
-import { Todos } from "~/client";
+import { ClientTodosCard } from "~/neutral";
 
 export default function Home() {
   return (
     <main>
-      <Todos />
+      <ClientTodosCard />
     </main>
   );
 }

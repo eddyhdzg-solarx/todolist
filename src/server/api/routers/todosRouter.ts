@@ -22,4 +22,51 @@ export const todosRouter = createTRPCRouter({
         },
       });
     }),
+  deleteTodo: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      const { id } = input;
+      return ctx.prisma.todos.delete({
+        where: {
+          id,
+        },
+      });
+    }),
+  createTodo: publicProcedure
+    .input(
+      z.object({
+        title: z.string(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      const { title } = input;
+      return ctx.prisma.todos.create({
+        data: {
+          title,
+          completed: false,
+        },
+      });
+    }),
+  setTitle: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        title: z.string(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      const { id, title } = input;
+      return ctx.prisma.todos.update({
+        where: {
+          id,
+        },
+        data: {
+          title,
+        },
+      });
+    }),
 });
