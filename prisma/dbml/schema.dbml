@@ -1,0 +1,11 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Todos {
+  id String [pk]
+  completed Boolean [not null]
+  createdAt DateTime [default: `now()`, not null]
+  title String [not null]
+  updatedAt DateTime
+}
