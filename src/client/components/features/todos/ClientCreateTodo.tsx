@@ -3,26 +3,19 @@
 import { useState } from "react";
 import { Input } from "~/@/components/ui/input";
 import { Button } from "~/@/components/ui/button";
-import { trpc } from "~/client";
+import { useCreateTodo } from "~/client";
 import { PlusIcon } from "lucide-react";
 
 export function ClientCreateTodo() {
   const [title, setTitle] = useState("");
-  const mutation = trpc.todos.createTodo.useMutation();
-
-  const handleCreateTodo = async () => {
-    if (title !== "") {
-      await mutation.mutateAsync({ title }).then(() => {
-        setTitle("");
-      });
-    }
-  };
+  const handleCreateTodo = useCreateTodo();
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        await handleCreateTodo();
+        setTitle("");
+        await handleCreateTodo(title);
       }}
       className="mb-5 flex items-center space-x-2"
     >

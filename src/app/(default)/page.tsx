@@ -1,9 +1,11 @@
 import { ClientTodosCard } from "~/neutral";
 
-export default function Home() {
+export default function BothPage() {
   return (
     <main>
-      <ClientTodosCard />
+      <div className="flex items-center justify-center">
+        <ClientTodosCard />
+      </div>
     </main>
   );
 }

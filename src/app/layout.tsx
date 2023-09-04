@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { ClientProviders } from "~/client";
 import { ServerProviders } from "~/server";
 import "./globals.css";
+import { Toaster } from "~/@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <ServerProviders>
-      <ClientProviders headers={headers()}>{children}</ClientProviders>
+      <ClientProviders headers={headers()}>
+        {children}
+        <Toaster />
+      </ClientProviders>
     </ServerProviders>
   );
 }

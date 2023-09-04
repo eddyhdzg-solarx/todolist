@@ -1,5 +1,5 @@
 import { TopNavigation } from "~/client";
-import { Container } from "~/neutral";
+import { Container, TopSpacing } from "~/neutral";
 
 export default function DefaultLayout({
   children,
@@ -9,6 +9,7 @@ export default function DefaultLayout({
   return (
     <>
       <TopNavigation />
+      <TopSpacing />
       <Container>{children}</Container>
     </>
   );
