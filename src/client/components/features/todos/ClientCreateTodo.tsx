@@ -31,7 +31,7 @@ export function ClientCreateTodo() {
       <Button
         variant="blue"
         size="icon"
-        className="h-10 w-10 text-blue-500"
+        className="h-10 w-8 text-blue-500"
         type="submit"
       >
         <PlusIcon className="h-4 w-4" />

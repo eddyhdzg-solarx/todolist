@@ -10,7 +10,7 @@ export function ServerCreateTodo() {
       <Button
         variant="yellow"
         size="icon"
-        className="h-10 w-10 text-yellow-400"
+        className="h-10 w-8 text-yellow-400"
         type="submit"
       >
         <PlusIcon className="h-4 w-4" />

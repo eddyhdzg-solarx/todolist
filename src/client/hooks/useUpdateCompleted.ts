@@ -1,11 +1,11 @@
 import { trpc } from "~/client";
 import { useToast } from "~/@/components/ui/use-toast";
 
-export function useToggleCompleted() {
+export function useUpdateCompleted() {
   const { toast } = useToast();
   const utils = trpc.useContext();
 
-  const mutation = trpc.todos.toggleCompleted.useMutation({
+  const mutation = trpc.todos.updateCompleted.useMutation({
     onMutate: async ({ id, completed }) => {
       // Cancel any outgoing refetches
       // (so they don't overwrite our optimistic update)

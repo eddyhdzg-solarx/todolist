@@ -1,4 +1,4 @@
 export * from "./useCreateTodo";
 export * from "./useDeleteTodo";
-export * from "./useSetTitle";
-export * from "./useToggleCompleted";
+export * from "./useUpdateCompleted";
+export * from "./useUpdateTitle";

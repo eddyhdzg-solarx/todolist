@@ -1,11 +1,11 @@
 import { trpc } from "~/client";
 import { useToast } from "~/@/components/ui/use-toast";
 
-export function useSetTitle() {
+export function useUpdateTitle() {
   const { toast } = useToast();
   const utils = trpc.useContext();
 
-  const mutation = trpc.todos.setTitle.useMutation({
+  const mutation = trpc.todos.updateTitle.useMutation({
     onMutate: async ({ id, title }) => {
       // Cancel any outgoing refetches
       // (so they don't overwrite our optimistic update)

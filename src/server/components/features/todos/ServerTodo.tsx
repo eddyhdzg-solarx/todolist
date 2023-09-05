@@ -2,7 +2,7 @@ import type { Todos } from "@prisma/client";
 import { Input } from "~/@/components/ui/input";
 import { Button } from "~/@/components/ui/button";
 import { TrashIcon, CircleIcon, CheckIcon } from "lucide-react";
-import { deleteTodo, setTitle, toggleCompleted } from "~/server";
+import { deleteTodo, updateTitle, updateCompleted } from "~/server";
 
 export function ServerTodo(todo: Todos) {
   return (
@@ -12,7 +12,7 @@ export function ServerTodo(todo: Todos) {
         action={async (e) => {
           "use server";
           const title = e.get("title") as unknown as string;
-          await setTitle(todo.id, title);
+          await updateTitle(todo.id, title);
         }}
       >
         <Input
@@ -27,9 +27,10 @@ export function ServerTodo(todo: Todos) {
         <Button
           variant={todo.completed ? "yellow" : "zinc"}
           size="icon"
+          className="w-8"
           formAction={async () => {
             "use server";
-            await toggleCompleted(todo.id, !todo.completed);
+            await updateCompleted(todo.id, !todo.completed);
           }}
         >
           {todo.completed ? (
@@ -43,6 +44,7 @@ export function ServerTodo(todo: Todos) {
         <Button
           variant="destructive"
           size="icon"
+          className="w-8"
           formAction={async () => {
             "use server";
             await deleteTodo(todo.id);

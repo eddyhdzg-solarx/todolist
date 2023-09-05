@@ -10,21 +10,18 @@ export const todosRouter = createTRPCRouter({
       },
     }),
   ),
-  toggleCompleted: publicProcedure
+  createTodo: publicProcedure
     .input(
       z.object({
-        id: z.string(),
-        completed: z.boolean(),
+        title: z.string(),
       }),
     )
     .mutation(({ ctx, input }) => {
-      const { id, completed } = input;
-      return ctx.prisma.todos.update({
-        where: {
-          id,
-        },
+      const { title } = input;
+      return ctx.prisma.todos.create({
         data: {
-          completed,
+          title,
+          completed: false,
         },
       });
     }),
@@ -42,22 +39,25 @@ export const todosRouter = createTRPCRouter({
         },
       });
     }),
-  createTodo: publicProcedure
+  updateCompleted: publicProcedure
     .input(
       z.object({
-        title: z.string(),
+        id: z.string(),
+        completed: z.boolean(),
       }),
     )
     .mutation(({ ctx, input }) => {
-      const { title } = input;
-      return ctx.prisma.todos.create({
+      const { id, completed } = input;
+      return ctx.prisma.todos.update({
+        where: {
+          id,
+        },
         data: {
-          title,
-          completed: false,
+          completed,
         },
       });
     }),
-  setTitle: publicProcedure
+  updateTitle: publicProcedure
     .input(
       z.object({
         id: z.string(),

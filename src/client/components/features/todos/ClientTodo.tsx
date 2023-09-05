@@ -3,13 +3,12 @@
 import type { Todos } from "@prisma/client";
 import { Input } from "~/@/components/ui/input";
 import { Button } from "~/@/components/ui/button";
-import { useDeleteTodo, useSetTitle } from "~/client";
+import { useDeleteTodo, useUpdateTitle, useUpdateCompleted } from "~/client";
 import { CheckIcon, CircleIcon, TrashIcon } from "lucide-react";
-import { useToggleCompleted } from "~/client";
 
 export function ClientTodo(todo: Todos) {
-  const handleToggleComplete = useToggleCompleted();
-  const handleSetTitle = useSetTitle();
+  const handleUpdateCompleted = useUpdateCompleted();
+  const handleUpdateTitle = useUpdateTitle();
   const handleDeleteTodo = useDeleteTodo();
 
   return (
@@ -22,7 +21,7 @@ export function ClientTodo(todo: Todos) {
           const newTitle = e.target.value;
 
           if (todo.title !== newTitle) {
-            await handleSetTitle({
+            await handleUpdateTitle({
               id: todo.id,
               title: e.target.value,
             });
@@ -33,7 +32,7 @@ export function ClientTodo(todo: Todos) {
         variant={todo.completed ? "blue" : "zinc"}
         size="icon"
         onClick={async () => {
-          await handleToggleComplete({
+          await handleUpdateCompleted({
             id: todo.id,
             completed: !todo.completed,
           });
