@@ -12,7 +12,9 @@ export function ServerTodo(todo: Todos) {
         action={async (e) => {
           "use server";
           const title = e.get("title") as unknown as string;
-          await updateTitle(todo.id, title);
+          if (title !== todo.title) {
+            await updateTitle(todo.id, title);
+          }
         }}
       >
         <Input
