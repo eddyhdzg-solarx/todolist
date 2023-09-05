@@ -15,7 +15,6 @@ export function useCreateTodo() {
       const prevTodos = utils.todos.getTodos.getData() ?? [];
 
       const newTodos = [
-        ...prevTodos,
         {
           id: "abc123",
           title,
@@ -23,6 +22,7 @@ export function useCreateTodo() {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        ...prevTodos,
       ];
 
       utils.todos.getTodos.setData(undefined, newTodos);

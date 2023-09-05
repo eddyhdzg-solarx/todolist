@@ -1,11 +1,10 @@
 "use client";
 
 import type { Todos } from "@prisma/client";
-import { Checkbox } from "~/@/components/ui/checkbox";
 import { Input } from "~/@/components/ui/input";
 import { Button } from "~/@/components/ui/button";
 import { useDeleteTodo, useSetTitle } from "~/client";
-import { TrashIcon } from "lucide-react";
+import { CheckIcon, CircleIcon, TrashIcon } from "lucide-react";
 import { useToggleCompleted } from "~/client";
 
 export function ClientTodo(todo: Todos) {
@@ -15,16 +14,6 @@ export function ClientTodo(todo: Todos) {
 
   return (
     <div className="flex items-center space-x-2">
-      <Checkbox
-        id={todo.id}
-        checked={todo.completed}
-        onClick={async () => {
-          await handleToggleComplete({
-            id: todo.id,
-            completed: !todo.completed,
-          });
-        }}
-      />
       <Input
         className="border-0"
         placeholder="Todo"
@@ -41,9 +30,24 @@ export function ClientTodo(todo: Todos) {
         }}
       />
       <Button
-        variant="ghost"
+        variant={todo.completed ? "blue" : "zinc"}
         size="icon"
-        className="text-zinc-100/70"
+        onClick={async () => {
+          await handleToggleComplete({
+            id: todo.id,
+            completed: !todo.completed,
+          });
+        }}
+      >
+        {todo.completed ? (
+          <CheckIcon className="h-4 w-4" />
+        ) : (
+          <CircleIcon className="h-4 w-4" />
+        )}
+      </Button>
+      <Button
+        variant="destructive"
+        size="icon"
         onClick={() => handleDeleteTodo(todo.id)}
       >
         <TrashIcon className="h-4 w-4" />

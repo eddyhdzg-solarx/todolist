@@ -6,15 +6,15 @@ import { createTodo } from "~/server";
 export function ServerCreateTodo() {
   return (
     <form className="mb-5 flex items-center space-x-2" action={createTodo}>
+      <Input name="title" className="flex-1 border-0" placeholder="Add Todo" />
       <Button
-        variant="ghost"
+        variant="yellow"
         size="icon"
-        className="text-blue-500"
+        className="h-10 w-10 text-yellow-400"
         type="submit"
       >
         <PlusIcon className="h-4 w-4" />
       </Button>
-      <Input name="title" className="border-0" placeholder="Add Todo" />
     </form>
   );
 }

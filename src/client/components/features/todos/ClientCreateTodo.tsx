@@ -19,16 +19,8 @@ export function ClientCreateTodo() {
       }}
       className="mb-5 flex items-center space-x-2"
     >
-      <Button
-        variant="ghost"
-        size="icon"
-        className="text-blue-500"
-        type="submit"
-      >
-        <PlusIcon className="h-4 w-4" />
-      </Button>
       <Input
-        className="border-0"
+        className="flex-1 border-0"
         placeholder="Add Todo"
         defaultValue={title}
         value={title}
@@ -36,6 +28,14 @@ export function ClientCreateTodo() {
           setTitle(e.target.value);
         }}
       />
+      <Button
+        variant="blue"
+        size="icon"
+        className="h-10 w-10 text-blue-500"
+        type="submit"
+      >
+        <PlusIcon className="h-4 w-4" />
+      </Button>
     </form>
   );
 }

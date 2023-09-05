@@ -4,14 +4,17 @@ import { MenuIcon, XIcon } from "lucide-react";
 import { Disclosure } from "@headlessui/react";
 import { cn } from "~/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
-  { name: "Both", href: "/", current: true },
-  { name: "Client", href: "/client", current: false },
-  { name: "Server", href: "/server", current: false },
+  { name: "Both", href: "/" },
+  { name: "Client", href: "/client" },
+  { name: "Server", href: "/server" },
 ];
 
 export function TopNavigation() {
+  const pathname = usePathname();
+
   return (
     <Disclosure as="nav" className="bg-zinc-800">
       {({ open }) => (
@@ -38,12 +41,14 @@ export function TopNavigation() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          item.current
+                          item.href === pathname
                             ? "bg-zinc-900 text-white"
                             : "text-zinc-300 hover:bg-zinc-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium",
                         )}
-                        aria-current={item.current ? "page" : undefined}
+                        aria-current={
+                          item.href === pathname ? "page" : undefined
+                        }
                       >
                         {item.name}
                       </Link>
@@ -62,12 +67,12 @@ export function TopNavigation() {
                   as={Link}
                   href={item.href}
                   className={cn(
-                    item.current
+                    item.href === pathname
                       ? "bg-zinc-900 text-white"
                       : "text-zinc-300 hover:bg-zinc-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium",
                   )}
-                  aria-current={item.current ? "page" : undefined}
+                  aria-current={item.href === pathname ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>

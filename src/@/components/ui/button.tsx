@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         zinc: "text-zinc-500/70 hover:bg-zinc-500/10 focus:bg-zinc-500/20 active:bg-zinc-500/30 focus-visible:ring-zinc-500",
-        blue: "text-blue-500/70 hover:bg-blue-500/10 focus:bg-blue-500/20 active:bg-blue-500/30 focus-visible:ring-blue-500",
+        blue: "text-blue-500 hover:bg-blue-500/10 focus:bg-blue-500/20 active:bg-blue-500/30 focus-visible:ring-blue-500",
         yellow:
           "text-yellow-400 hover:bg-yellow-400/10 focus:bg-yellow-400/20 active:bg-yellow-400/30 focus-visible:ring-yellow-400",
         destructive:

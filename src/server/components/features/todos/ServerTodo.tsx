@@ -6,8 +6,9 @@ import { deleteTodo, setTitle, toggleCompleted } from "~/server";
 
 export function ServerTodo(todo: Todos) {
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex w-full items-center space-x-2">
       <form
+        className="w-full"
         action={async (e) => {
           "use server";
           const title = e.get("title") as unknown as string;
