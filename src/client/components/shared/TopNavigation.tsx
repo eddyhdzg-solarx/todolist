@@ -10,6 +10,8 @@ const navigation = [
   { name: "Both", href: "/" },
   { name: "Client", href: "/client" },
   { name: "Server", href: "/server" },
+  { name: "Client Tabs", href: "/tabs/client" },
+  { name: "Server Tabs", href: "/tabs/server" },
 ];
 
 export function TopNavigation() {

@@ -1,28 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+import { PlusIcon } from "lucide-react";
 import { Input } from "~/@/components/ui/input";
 import { Button } from "~/@/components/ui/button";
 import { useCreateTodo } from "~/client";
-import { PlusIcon } from "lucide-react";
 
 export function ClientCreateTodo() {
   const [title, setTitle] = useState("");
   const handleCreateTodo = useCreateTodo();
 
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setTitle("");
+    await handleCreateTodo(title);
+  }
+
   return (
-    <form
-      onSubmit={async (e) => {
-        e.preventDefault();
-        setTitle("");
-        await handleCreateTodo(title);
-      }}
-      className="mb-5 flex items-center space-x-2"
-    >
+    <form onSubmit={onSubmit} className="mb-5 flex items-center space-x-2">
       <Input
         className="flex-1 border-0"
         placeholder="Add Todo"
-        defaultValue={title}
         value={title}
         onChange={(e) => {
           setTitle(e.target.value);

@@ -6,7 +6,7 @@ import { ServerCreateTodo, ServerTodos } from "~/server";
 export default function BothPage() {
   return (
     <main>
-      <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+      <div className="flex flex-col items-start justify-center gap-8 md:flex-row">
         <TodosCard
           title="Client"
           description="Todos using client components"
@@ -18,7 +18,7 @@ export default function BothPage() {
         <TodosCard
           title="Server"
           description="Todos using server components"
-          className="border-yellow-500"
+          className="border-red-500"
         >
           <ServerCreateTodo />
           <Suspense fallback={<TodosSkeletons />}>

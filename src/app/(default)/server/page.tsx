@@ -9,7 +9,7 @@ export default function ServerPage() {
         <TodosCard
           title="Server"
           description="Todos using server components"
-          className="border-yellow-500"
+          className="border-red-500"
         >
           <ServerCreateTodo />
           <Suspense fallback={<TodosSkeletons />}>

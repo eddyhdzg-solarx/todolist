@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
     provider = "mongodb"
+    // provider = "postgresql"
     // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
@@ -12,9 +13,11 @@ datasource db {
 
 model Todos {
     id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    // id        Int      @id @default(autoincrement())
     completed Boolean
     createdAt DateTime @default(now())
     title     String
 
     @@index([createdAt])
+    @@index([completed, createdAt])
 }

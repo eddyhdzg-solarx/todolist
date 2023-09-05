@@ -1,5 +1,3 @@
-"use client";
-
 import { trpc } from "~/client";
 import { useToast } from "~/@/components/ui/use-toast";
 
@@ -18,11 +16,10 @@ export function useCreateTodo() {
 
       const newTodos = [
         {
-          id: "abc123",
+          id: String(Math.random()),
           title,
           completed: false,
           createdAt: new Date(),
-          updatedAt: new Date(),
         },
         ...prevTodos,
       ];
@@ -39,6 +36,7 @@ export function useCreateTodo() {
     },
     onSettled: async () => {
       await utils.todos.getTodos.invalidate();
+      await utils.todos.getTodosWithFilter.invalidate();
     },
   });
 

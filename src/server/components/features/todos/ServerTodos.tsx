@@ -3,6 +3,7 @@ import { ServerTodo, getServerClient } from "~/server";
 export async function ServerTodos() {
   const serverClient = getServerClient();
   const todos = await serverClient.todos.getTodos();
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   return (
     <ul className="space-y-3">

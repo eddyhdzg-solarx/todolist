@@ -1,5 +1,3 @@
-"use client";
-
 import { trpc } from "~/client";
 import { useToast } from "~/@/components/ui/use-toast";
 
@@ -30,6 +28,7 @@ export function useDeleteTodo() {
     },
     onSettled: async () => {
       await utils.todos.getTodos.invalidate();
+      await utils.todos.getTodosWithFilter.invalidate();
     },
   });
 

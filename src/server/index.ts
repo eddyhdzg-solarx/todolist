@@ -1,4 +1,4 @@
-"server only";
+import "server-only";
 
 export { createTRPCContext, createTRPCRouter } from "./api/trpc";
 export { type AppRouter } from "./api/root";

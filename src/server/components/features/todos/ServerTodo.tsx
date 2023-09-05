@@ -27,7 +27,7 @@ export function ServerTodo(todo: Todos) {
       </form>
       <form>
         <Button
-          variant={todo.completed ? "yellow" : "zinc"}
+          variant={todo.completed ? "red" : "zinc"}
           size="icon"
           className="w-8"
           formAction={async () => {

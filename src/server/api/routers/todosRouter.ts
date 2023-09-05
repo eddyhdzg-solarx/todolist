@@ -10,6 +10,22 @@ export const todosRouter = createTRPCRouter({
       },
     }),
   ),
+  getTodosWithFilter: publicProcedure
+    .input(
+      z.object({
+        completed: z.boolean(),
+      }),
+    )
+    .query(({ ctx, input }) =>
+      ctx.prisma.todos.findMany({
+        where: {
+          completed: input.completed,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      }),
+    ),
   createTodo: publicProcedure
     .input(
       z.object({
