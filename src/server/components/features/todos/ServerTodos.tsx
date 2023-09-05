@@ -1,4 +1,4 @@
-import { getServerClient } from "~/server";
+import { ServerTodo, getServerClient } from "~/server";
 
 export async function ServerTodos() {
   const serverClient = getServerClient();
@@ -7,7 +7,9 @@ export async function ServerTodos() {
   return (
     <ul className="space-y-3">
       {todos.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
+        <li key={todo.id}>
+          <ServerTodo {...todo} />
+        </li>
       ))}
     </ul>
   );
