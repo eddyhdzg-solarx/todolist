@@ -15,9 +15,10 @@ datasource db {
 }
 
 model Todos {
-    id        String    @id @default(auto()) @map("_id") @db.ObjectId
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
     completed Boolean
-    createdAt DateTime  @default(now())
+    createdAt DateTime @default(now())
     title     String
-    updatedAt DateTime? @updatedAt
+
+    @@index([createdAt])
 }

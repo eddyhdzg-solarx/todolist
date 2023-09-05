@@ -30,10 +30,14 @@ export function ClientTodo(todo: Todos) {
         placeholder="Todo"
         defaultValue={todo.title ?? ""}
         onBlur={async (e) => {
-          await handleSetTitle({
-            id: todo.id,
-            title: e.target.value,
-          });
+          const newTitle = e.target.value;
+
+          if (todo.title !== newTitle) {
+            await handleSetTitle({
+              id: todo.id,
+              title: e.target.value,
+            });
+          }
         }}
       />
       <Button
