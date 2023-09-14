@@ -1,6 +1,6 @@
-import { SkeletonText } from "../SkeletonText";
+import { SkeletonText } from "./SkeletonText";
 
-export function SkeletonTodos() {
+export function SkeletonTodos2() {
   return (
     <div>
       <SkeletonText className="mb-2 w-48 text-lg" />

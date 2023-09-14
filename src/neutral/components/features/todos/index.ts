@@ -1,2 +1,1 @@
-export * from "./TodosCard";
-export * from "./TodosSkeletons";
+export * from "../../../../components/shared/TodosCard";

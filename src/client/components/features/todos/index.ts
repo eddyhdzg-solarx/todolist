@@ -1,4 +1,2 @@
-export * from "./ClientCreateTodo";
-export * from "./ClientTodo";
-export * from "./ClientTodos";
+export * from "../../../../components/4- crudTodos/ClientCreateTodo";
 export * from "./CombinedCreateTodos";

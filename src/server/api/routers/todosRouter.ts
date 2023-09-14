@@ -13,7 +13,7 @@ export const todosRouter = createTRPCRouter({
   getTodosWithFilter: publicProcedure
     .input(
       z.object({
-        completed: z.boolean(),
+        completed: z.boolean().optional(),
       }),
     )
     .query(({ ctx, input }) =>

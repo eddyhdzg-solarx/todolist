@@ -10,6 +10,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Simple", href: "/simple" },
   { name: "With Loading", href: "/loading" },
+  { name: "With Tabs", href: "/tabs" },
 ];
 
 export function TopNavigation() {

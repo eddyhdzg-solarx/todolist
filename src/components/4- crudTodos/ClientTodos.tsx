@@ -1,13 +1,14 @@
 "use client";
 
-import { trpc, ClientTodo } from "~/client";
-import { TodosSkeletons } from "~/neutral";
+import { trpc } from "~/client";
+import { ClientTodo } from "./ClientTodo";
+import { SkeletonsTodos } from "~/components";
 
 export function ClientTodos() {
   const { data, isLoading } = trpc.todos.getTodos.useQuery();
 
   if (isLoading) {
-    return <TodosSkeletons />;
+    return <SkeletonsTodos />;
   }
 
   return (

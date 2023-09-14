@@ -23,7 +23,7 @@ async function ServerTabs({ completed }: ServerListProps) {
 
 export function ServerTabs2(props: {
   searchParams: {
-    tab: "completed" | "uncompleted";
+    completed: "true" | "false" | undefined;
   };
 }) {
   const tab = props.searchParams?.tab ?? "completed";
