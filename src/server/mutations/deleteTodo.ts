@@ -1,10 +1,10 @@
 "use server";
 
-import { getServerClient } from "~/server";
+import { serverTrpc } from "~/server";
 import { revalidateTag } from "next/cache";
 
 export async function deleteTodo(id: string) {
-  const serverClient = getServerClient();
+  const serverClient = serverTrpc();
   await serverClient.todos.deleteTodo({ id });
   revalidateTag("todos");
 }

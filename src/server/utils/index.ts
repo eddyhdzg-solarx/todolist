@@ -1,1 +1,2 @@
-export * from "./getServerClient";
+export * from "./serverTrpc";
+export * from "./getTimeout";

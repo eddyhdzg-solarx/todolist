@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import { TodosSkeletons } from "~/neutral";
-import { ServerTodo, getServerClient } from "~/server";
+import { ServerTodo, serverTrpc } from "~/server";
 
 interface ServerListProps {
   completed: boolean;
 }
 
 async function ServerTabs({ completed }: ServerListProps) {
-  const serverClient = getServerClient();
+  const serverClient = serverTrpc();
   const todos = await serverClient.todos.getTodosWithFilter({ completed });
 
   return (

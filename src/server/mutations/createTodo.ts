@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { getServerClient } from "~/server";
+import { serverTrpc } from "~/server";
 import { revalidateTag } from "next/cache";
 
 const schema = z.object({
@@ -13,7 +13,7 @@ export async function createTodo(formData: FormData) {
     title: formData.get("title"),
   });
 
-  const serverClient = getServerClient();
+  const serverClient = serverTrpc();
   await serverClient.todos.createTodo({ title });
   revalidateTag("todos");
 }

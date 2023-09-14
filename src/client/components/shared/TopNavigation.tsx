@@ -7,11 +7,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navigation = [
-  { name: "Both", href: "/" },
-  { name: "Client", href: "/client" },
-  { name: "Server", href: "/server" },
-  { name: "Client Tabs", href: "/tabs/client" },
-  { name: "Server Tabs", href: "/tabs/server" },
+  { name: "Home", href: "/" },
+  { name: "Simple", href: "/simple" },
+  { name: "With Loading", href: "/loading" },
 ];
 
 export function TopNavigation() {

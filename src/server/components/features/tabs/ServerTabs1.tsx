@@ -1,5 +1,5 @@
 import type { Todos } from "@prisma/client";
-import { getServerClient } from "~/server";
+import { serverTrpc } from "~/server";
 
 interface ServerTabsProps {
   completedTodos: Todos[];
@@ -17,7 +17,7 @@ export function ServerTabs({ completedTodos }: ServerTabsProps) {
 }
 
 export async function ServerTabs1() {
-  const serverClient = getServerClient();
+  const serverClient = serverTrpc();
   const completedTodos = await serverClient.todos.getTodosWithFilter({
     completed: true,
   });
