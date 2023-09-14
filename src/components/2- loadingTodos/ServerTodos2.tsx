@@ -13,7 +13,7 @@ export function ServerTodos2() {
 
 async function LoadedTodos() {
   const todos = await serverTrpc().simpleTodos.getTodos();
-  await getTimeout(1000);
+  await getTimeout(1000); // util so it waits at least 1 sec
 
   return (
     <div>

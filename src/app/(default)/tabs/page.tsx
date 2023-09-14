@@ -1,7 +1,7 @@
 import { ClientTodos3 } from "~/components/3- tabs/ClientTodos3";
 import { ServerTodos3 } from "~/components/3- tabs/ServerTodos3";
 
-export default function Page(props: {
+export default function Tabs(props: {
   searchParams: {
     completed: "true" | "false" | undefined;
   };

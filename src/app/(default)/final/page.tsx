@@ -1,7 +1,7 @@
 import { ClientTodos4 } from "~/components/4- final/ClientTodos4";
 import { ServerTodos4 } from "~/components/4- final/ServerTodos4";
 
-export default function Page() {
+export default function Final() {
   return (
     <main>
       <div className="container flex max-w-4xl flex-col justify-center gap-8 md:flex-row">
