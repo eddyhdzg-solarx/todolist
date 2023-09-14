@@ -17,7 +17,7 @@ const data = [
 
 export function Hello() {
   return (
-    <div>
+    <div className="w-full">
       <div className="mb-10 text-center">
         <h1 className="mb-2 text-4xl font-bold">Next.ATX</h1>
         <h2 className="text-zinc text-2xl font-medium text-zinc-100/70">
