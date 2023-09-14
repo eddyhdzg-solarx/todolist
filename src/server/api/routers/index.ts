@@ -1,2 +1,2 @@
-export * from "./simpleTodos";
+export * from "./simpleTodosRouter";
 export * from "./todosRouter";
