@@ -1,5 +1,4 @@
-import { TopNavigation } from "~/client";
-import { Container, TopSpacing } from "~/neutral";
+import { TopNavigation, Container, TopSpacing } from "~/components";
 
 export default function DefaultLayout({
   children,

@@ -21,7 +21,7 @@ export function TodosCard({
   className,
 }: TodosCardProps) {
   return (
-    <Card className={cn("w-full max-w-md border-0 border-l-4", className)}>
+    <Card className={cn("w-full border-0 border-l-4", className)}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription className="text-zinc-100/70">

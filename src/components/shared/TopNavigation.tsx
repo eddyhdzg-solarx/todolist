@@ -11,6 +11,7 @@ const navigation = [
   { name: "Simple", href: "/simple" },
   { name: "With Loading", href: "/loading" },
   { name: "With Tabs", href: "/tabs" },
+  { name: "Final", href: "/final" },
 ];
 
 export function TopNavigation() {

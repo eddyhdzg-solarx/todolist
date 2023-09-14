@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { serverTrpc } from "~/server";
+import { getTimeout, serverTrpc } from "~/server";
 import { SkeletonTodos2 } from "~/components";
 import { cn } from "~/utils";
 
@@ -13,6 +13,7 @@ export function ServerTodos2() {
 
 async function LoadedTodos() {
   const todos = await serverTrpc().simpleTodos.getTodos();
+  await getTimeout(1000);
 
   return (
     <div>

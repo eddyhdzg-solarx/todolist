@@ -1,9 +1,8 @@
-import { ServerCreateTodo } from "~/server";
-
-// import { Suspense } from "react";
 import { TodosCard } from "../shared";
+import { ServerCreateTodo } from "./ServerCreateTodo";
+import { ServerTodos } from "./ServerTodos";
 
-export function ServerTodos2() {
+export function ServerTodos4() {
   return (
     <TodosCard
       title="Server"
@@ -11,9 +10,7 @@ export function ServerTodos2() {
       className="border-red-500"
     >
       <ServerCreateTodo />
-      {/* <Suspense fallback={<TodosSkeletons />}>
-        <ServerTodos />
-      </Suspense> */}
+      <ServerTodos />
     </TodosCard>
   );
 }

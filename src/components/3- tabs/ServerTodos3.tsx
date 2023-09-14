@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { serverTrpc } from "~/server";
 import { SkeletonTodos2 } from "~/components";
-import { ServerTabs } from "./ServerTabs";
 import { cn } from "~/utils";
+import { ServerTabs } from "./ServerTabs";
 
 export function ServerTodos3(props: {
   searchParams: {

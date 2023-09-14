@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { trpc } from "~/client";
 import { SkeletonTodos2 } from "~/components";
-import { ClientTabs } from "./ClientTabs";
 import { cn } from "~/utils";
+import { ClientTabs } from "./ClientTabs";
 
 export function ClientTodos3() {
   const [completed, setCompleted] = useState<boolean | undefined>(undefined);
